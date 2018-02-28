@@ -5,4 +5,8 @@ set -vx
 
 bundle install
 
-# Do any other automated setup that you need to do here
+psql postgres -tAc "SELECT 1 FROM pg_roles WHERE rolname='gem_with_database'" | grep -q 1 || \
+psql postgres --command="create role gem_with_database with superuser login password 'password'"
+
+psql postgres -tAc "SELECT 1 FROM pg_database WHERE datname='gem_with_database_development'" | grep -q 1 || \
+rake db:create db:migrate db:seed

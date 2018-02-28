@@ -1,14 +1,15 @@
 #!/usr/bin/env ruby
 
-require "bundler/setup"
-require "gem_with_database"
+require 'bundler/setup'
+require 'gem_with_database'
+require 'active_record'
+require 'logger'
+require 'pry'
 
-# You can add fixtures and/or initialization code here to make experimenting
-# with your gem easier. You can also use a different console, if you like.
+ActiveRecord::Base.establish_connection(
+  :adapter => 'postgresql',
+  :database => 'gem_with_database_development'
+)
+ActiveRecord::Base.logger = Logger.new(STDOUT)
 
-# (If you use this, don't forget to add pry to your Gemfile!)
-# require "pry"
-# Pry.start
-
-require "irb"
-IRB.start(__FILE__)
+Pry.start

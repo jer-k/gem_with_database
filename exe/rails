@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+require 'rails'
+
+module GemWithDatabase
+  class Engine < Rails::Engine
+    config.generators do |g|
+      g.orm :active_record
+    end
+  end
+end
+
+Rails.application = GemWithDatabase::Engine
+
+require 'rails/commands'
