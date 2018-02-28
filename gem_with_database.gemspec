@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Jeremy Kreutzbender"]
   spec.email         = ["jkreutzbender@truecar.com"]
 
-  spec.summary       = "Setting up a gem with database"
+  spec.summary       = "Adding ActiveRecord::Tasks::DatabaseTasks to a gem"
   spec.description   = "No need for Rails"
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/jer-k/gem_with_database"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'

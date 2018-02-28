@@ -1,18 +1,19 @@
 # Add the ability to run db:create/migrate/drop etc
+require 'dotenv'
 require 'yaml'
 require 'erb'
-
 require 'active_record'
 include ActiveRecord::Tasks
-
-# Load the environment variables for the Postgres user
-require 'dotenv'
-Dotenv.load('.env')
 
 root = File.expand_path('../..', __FILE__)
 DatabaseTasks.root = root
 DatabaseTasks.db_dir = File.join(root, 'db')
 DatabaseTasks.migrations_paths = [File.join(root, 'db/migrate')]
+
+# Load the environment variables for the Postgres user
+
+Dotenv.load('.env')
+
 DatabaseTasks.database_configuration = YAML.load(ERB.new(IO.read(File.join(root, 'config/database.yml'))).result)
 
 # The SeedLoader is Optional, if you don't want/need seeds you can skip setting it
@@ -30,9 +31,7 @@ DatabaseTasks.seed_loader = SeedLoader.new(File.join(root, 'db/seeds.rb'))
 
 DatabaseTasks.env = ENV['ENV'] || 'development'
 
-task :environment do
-  ActiveRecord::Base.configurations = DatabaseTasks.database_configuration
-  ActiveRecord::Base.establish_connection(DatabaseTasks.env.to_sym)
-end
+ActiveRecord::Base.configurations = DatabaseTasks.database_configuration
+ActiveRecord::Base.establish_connection(DatabaseTasks.env.to_sym)
 
 load 'active_record/railties/databases.rake'
