@@ -12,4 +12,5 @@ tasks needed to use and develop code with `ActiveRecord` into a non Rails enviro
 
 A blog post detailing the steps to set up the gem can be found 
 [here](https://jer-k.github.io/add-active-record-rake-tasks-to-gem/).
+
 A blog post detailing the process I used to understand how to create a `Rails::Engine` to provide the `rails g migration` functionality to a gem can be found [here](https://jer-k.github.io/adding-rails-g-migration-to-a-gem/)
