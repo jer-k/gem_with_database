@@ -30,14 +30,18 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency 'activerecord', '~> 5'
-  spec.add_dependency 'factory_bot', '~> 4'
+  spec.add_dependency 'activerecord', '5.1.5'
+  spec.add_dependency 'factory_bot', '4.8.2'
 
-  spec.add_development_dependency "bundler", "~> 1.15"
-  spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "rspec", "~> 3.0"
-  spec.add_development_dependency 'pg', '~> 0.19'
-  spec.add_development_dependency 'pry', '~> 0.10'
-  spec.add_development_dependency 'dotenv', '~> 2.2'
-  spec.add_development_dependency 'railties', '~> 5'
+  spec.add_development_dependency "bundler", "1.16.1"
+  spec.add_development_dependency "rake", "10.5.0"
+  spec.add_development_dependency "rspec", "3.7.0"
+  spec.add_development_dependency "rspec-expectations", "3.7.0"
+  spec.add_development_dependency "rspec-support", "3.7.0"
+  spec.add_development_dependency "rspec-core", "3.7.0"
+  spec.add_development_dependency "rspec-mocks", "3.7.0"
+  spec.add_development_dependency 'pg', '0.21'
+  spec.add_development_dependency 'pry', '0.11.3'
+  spec.add_development_dependency 'dotenv', '2.2.1'
+  spec.add_development_dependency 'railties', '5.1.5'
 end
