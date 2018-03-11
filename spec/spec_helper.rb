@@ -12,3 +12,13 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 end
+
+ENV['ENV'] = 'test' # Ensure we don't drop the development database
+
+require 'bundler/gem_tasks'
+require_relative '../support/active_record_rake_tasks'
+task :environment
+
+Rake::Task['db:drop'].invoke
+Rake::Task['db:create'].invoke
+Rake::Task['db:schema:load'].invoke
