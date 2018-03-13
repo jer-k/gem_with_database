@@ -5,7 +5,7 @@ but that really obfuscates the purpose of the gem which is adding rake tasks
 associated with using `ActiveRecord`.
 
 `rake db:create db:migrate db:seed db:destroy db:setup db:reset` are
-all available within this gem, as well as `exe/rails g migration`. 
+all available within this gem, as well as `exe/gem_rails g migration`. 
 
 The gem is meant to demonstrate how to add `ActiveRecord` and all the associated
 tasks needed to use and develop code with `ActiveRecord` into a non Rails environment.
