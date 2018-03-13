@@ -3,8 +3,6 @@ services:
   app:
     entrypoint: ./bin/wait_for_pg.sh db
     build: .
-    ports:
-      - "8080:8080"
     volumes:
       - .:/app
     environment:
