@@ -1,5 +1,14 @@
 require "bundler/setup"
 require "gem_with_database"
+require 'simplecov'
+
+if ENV.fetch('COVERAGE', false)
+  SimpleCov.start do
+    track_files 'lib/**/*.rb'
+    minimum_coverage 90
+    maximum_coverage_drop 2
+  end
+end
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -19,6 +28,7 @@ require 'bundler/gem_tasks'
 require_relative '../support/active_record_rake_tasks'
 task :environment
 
+Rake::Task['db:environment:set'].invoke
 Rake::Task['db:drop'].invoke
 Rake::Task['db:create'].invoke
 Rake::Task['db:schema:load'].invoke
